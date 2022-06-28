@@ -1,0 +1,32 @@
+{
+  "name": "alkemy-fullstack-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "fullstack challenge - budget manager",
+  "workspaces": [
+    "app",
+    "api"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build -w app",
+    "start:api":"npm run dev -w api",
+    "start:app":"npm run dev -w app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "8.18.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "2.7.1"
+  }
+}

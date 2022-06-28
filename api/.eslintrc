@@ -1,0 +1,19 @@
+{
+  "extends": ["plugin:prettier/recommended", "plugin:import/recommended"],
+  "plugins": ["promise", "prettier", "import"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 120,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

@@ -10,8 +10,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build -w app",
-    "start:api":"npm run dev -w api",
-    "start:app":"npm run dev -w app"
+    "start":"npm run start -w api",
+    "dev:api": "npm run build -w app && npm run dev -w api"
   },
   "keywords": [],
   "author": "",

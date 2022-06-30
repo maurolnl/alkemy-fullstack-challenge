@@ -25,7 +25,7 @@ interface Props {
 
 type FormData = {
   concept: string;
-  type: "income" | "expense";
+  typeForm?: "income" | "expense";
   amount: number;
   category: string;
 };
@@ -40,6 +40,8 @@ const OperationForm: React.FC<Props> = ({isOpen, onClose, isEdit}) => {
   const header = isEdit ? "Editar Operación" : "Nueva Operación";
 
   const onSubmit = (data: FormData) => {
+    const type = data.typeForm ? data.typeForm : "income"; //TODO: change "income" to whatever comes from the api.
+
     console.log(data);
     onClose();
   };
@@ -53,28 +55,30 @@ const OperationForm: React.FC<Props> = ({isOpen, onClose, isEdit}) => {
         <ModalBody>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stack>
-              <FormControl isInvalid={errors.type && true}>
-                <Stack alignItems="center" direction="row">
-                  <FormLabel htmlFor="type" id="type" textAlign="right" width="90px">
-                    Tipo
-                  </FormLabel>
-                  <Select
-                    id="type"
-                    {...register("type")}
-                    _focusVisible={{
-                      zIndex: 1,
-                      borderColor: "brand.pink.200",
-                      boxShadow: "0 0 0 1px #ffc6e0",
-                    }}
-                  >
-                    <option value={"income"}>Ingreso</option>
-                    <option value={"expense"}>Egreso</option>
-                  </Select>
-                </Stack>
-                <FormErrorMessage id="type-error" justifyContent="flex-end">
-                  {errors.type && errors.type.message}
-                </FormErrorMessage>
-              </FormControl>
+              {!isEdit && (
+                <FormControl isInvalid={errors.typeForm && true}>
+                  <Stack alignItems="center" direction="row">
+                    <FormLabel htmlFor="typeForm" id="typeForm" textAlign="right" width="90px">
+                      Tipo
+                    </FormLabel>
+                    <Select
+                      id="typeForm"
+                      {...register("typeForm")}
+                      _focusVisible={{
+                        zIndex: 1,
+                        borderColor: "brand.pink.200",
+                        boxShadow: "0 0 0 1px #ffc6e0",
+                      }}
+                    >
+                      <option value={"income"}>Ingreso</option>
+                      <option value={"expense"}>Egreso</option>
+                    </Select>
+                  </Stack>
+                  <FormErrorMessage id="typeForm-error" justifyContent="flex-end">
+                    {errors.typeForm && errors.typeForm.message}
+                  </FormErrorMessage>
+                </FormControl>
+              )}
 
               <FormControl isInvalid={errors.concept && true}>
                 <Stack alignItems="center" direction="row">

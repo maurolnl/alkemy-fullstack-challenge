@@ -1,13 +1,16 @@
 import React from "react";
 import {Box} from "@chakra-ui/react";
 
-import Navbar from "./common/Navbar";
+import Home from "./pages/home/components/Home";
+import Layout from "./common/Layout";
 
 const App: React.FC = () => {
   // TODO: Consider changing the background color to neutral white
   return (
     <Box backgroundColor="neutral.plate_white" minH="100vh">
-      <Navbar />
+      <Layout>
+        <Home />
+      </Layout>
     </Box>
   );
 };

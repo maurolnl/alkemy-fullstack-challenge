@@ -9,6 +9,8 @@ import {
 } from "@chakra-ui/react";
 import {createRef} from "react";
 
+import {gradients} from "../../theme";
+
 interface Props {
   isOpen: boolean;
   onClose: () => void;
@@ -30,11 +32,22 @@ const DeleteDialog: React.FC<Props> = ({isOpen, onClose}) => {
           </AlertDialogBody>
 
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
-              Cancel
+            <Button ref={cancelRef} cursor="initial" onClick={onClose}>
+              Cancelar
             </Button>
-            <Button colorScheme="red" ml={3} onClick={onClose}>
-              Delete
+            <Button
+              _focus={{
+                boxShadow: "0 0 0 2px rgba(224,82,99,1)",
+              }}
+              _hover={{
+                bgGradient: gradients.pink_strong,
+              }}
+              backgroundColor={"brand.pink.400"}
+              cursor="initial"
+              ml={3}
+              onClick={onClose}
+            >
+              Eliminar
             </Button>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -3,10 +3,12 @@ import {MdOutlineModeEdit, MdDeleteOutline} from "react-icons/md";
 
 import {gradients} from "../../theme";
 import GradientButton from "../Button";
+import DeleteDialog from "../DeleteDialog";
 import OperationForm from "../OperationForm";
 
 const OperationList = () => {
   const {isOpen, onOpen, onClose} = useDisclosure();
+  const {isOpen: isOpenDialog, onOpen: onOpenDialog, onClose: onCloseDialog} = useDisclosure();
 
   const operationAmount = 456.78;
   const operationAmountStyle = operationAmount > 0 ? "brand.green.900" : "accent";
@@ -21,7 +23,7 @@ const OperationList = () => {
       >
         <Stack direction="row" justifyContent="space-between" px={5} py={3}>
           <Stack justifyContent="space-between">
-            <Text fontSize="md">
+            <Text fontSize="md" fontWeight="bold">
               Compra de Verduras y Frutas
               <Text color="neutral.pink_gray" fontSize="md">
                 Alimentos
@@ -45,6 +47,7 @@ const OperationList = () => {
                 ariaLabel="Eliminar Operación"
                 hasLabel={true}
                 icon={<MdDeleteOutline />}
+                onClick={onOpenDialog}
               />
             </Stack>
             <Text
@@ -56,6 +59,7 @@ const OperationList = () => {
         </Stack>
       </ListItem>
       <OperationForm isEdit isOpen={isOpen} onClose={onClose} />
+      <DeleteDialog isOpen={isOpenDialog} onClose={onCloseDialog} />
     </List>
   );
 };

@@ -1,14 +1,13 @@
-import {Stack, Box} from "@chakra-ui/react";
+import {Stack, Box, Container} from "@chakra-ui/react";
 import {AiOutlineHome, AiOutlineUserDelete, AiOutlinePlusCircle} from "react-icons/ai";
 import {HiOutlineInbox} from "react-icons/hi";
 
 import GradientButton from "../Button";
-import Layout from "../Layout";
 
 const Navbar = () => {
   return (
     <Box as="header" backgroundColor="neutral.white">
-      <Layout>
+      <Container maxW={"container.md"}>
         <Stack alignItems="center" direction="row" justifyContent="space-between" minH="100px">
           <Stack as="nav" direction="row">
             <GradientButton
@@ -39,7 +38,7 @@ const Navbar = () => {
             />
           </Stack>
         </Stack>
-      </Layout>
+      </Container>
     </Box>
   );
 };

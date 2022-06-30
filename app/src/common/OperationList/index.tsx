@@ -1,10 +1,13 @@
-import {List, ListItem, Stack, Text} from "@chakra-ui/react";
+import {List, ListItem, Stack, Text, useDisclosure} from "@chakra-ui/react";
 import {MdOutlineModeEdit, MdDeleteOutline} from "react-icons/md";
 
 import {gradients} from "../../theme";
 import GradientButton from "../Button";
+import OperationForm from "../OperationForm";
 
 const OperationList = () => {
+  const {isOpen, onOpen, onClose} = useDisclosure();
+
   const operationAmount = 456.78;
   const operationAmountStyle = operationAmount > 0 ? "brand.green.900" : "accent";
 
@@ -35,10 +38,11 @@ const OperationList = () => {
                 ariaLabel="Editar Operación"
                 hasLabel={true}
                 icon={<MdOutlineModeEdit />}
+                onClick={onOpen}
               />
               <GradientButton
                 isStrong
-                ariaLabel="Editar Operación"
+                ariaLabel="Eliminar Operación"
                 hasLabel={true}
                 icon={<MdDeleteOutline />}
               />
@@ -51,6 +55,7 @@ const OperationList = () => {
           </Stack>
         </Stack>
       </ListItem>
+      <OperationForm isEdit isOpen={isOpen} onClose={onClose} />
     </List>
   );
 };

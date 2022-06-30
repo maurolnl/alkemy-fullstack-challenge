@@ -1,10 +1,13 @@
-import {Stack, Box, Container} from "@chakra-ui/react";
+import {Stack, Box, Container, useDisclosure} from "@chakra-ui/react";
 import {AiOutlineHome, AiOutlineUserDelete, AiOutlinePlusCircle} from "react-icons/ai";
 import {HiOutlineInbox} from "react-icons/hi";
 
 import GradientButton from "../Button";
+import OperationForm from "../OperationForm";
 
 const Navbar = () => {
+  const {isOpen, onOpen, onClose} = useDisclosure();
+
   return (
     <Box as="header" backgroundColor="neutral.white">
       <Container maxW={"container.md"}>
@@ -29,6 +32,7 @@ const Navbar = () => {
               ariaLabel="Crear Operación"
               hasLabel={true}
               icon={<AiOutlinePlusCircle />}
+              onClick={onOpen}
             />
             <GradientButton
               ariaLabel="Cerrar Sesión"
@@ -38,6 +42,7 @@ const Navbar = () => {
             />
           </Stack>
         </Stack>
+        <OperationForm isOpen={isOpen} onClose={onClose} />
       </Container>
     </Box>
   );

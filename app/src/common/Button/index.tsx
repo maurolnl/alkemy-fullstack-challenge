@@ -2,13 +2,15 @@ import {IconButton, Tooltip} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import React from "react";
 
+import {gradients} from "../../theme";
+
 interface Props {
   icon?: React.ReactElement<any, string | React.JSXElementConstructor<any>> | undefined;
   onClick?: () => void;
   ariaLabel?: string;
   variant?: "hover" | "active";
   url?: string;
-  isExternal?: boolean;
+  isStrong?: boolean;
   hasLabel: boolean;
 }
 
@@ -18,15 +20,13 @@ const GradientButton: React.FC<Props> = ({
   onClick,
   variant,
   url,
-  isExternal,
+  isStrong,
   hasLabel,
 }) => {
-  const isButtonActive =
-    variant === "active"
-      ? "linear-gradient(120deg, rgba(240,215,42,1) 0%, rgba(224,221,85,1) 48%, rgba(134,231,222,1) 100%)"
-      : "brand.pink.100";
+  const isButtonActive = variant === "active" ? gradients.pink_accent : "brand.pink.100";
   const lightPinkGradient =
     "linear-gradient(120deg, rgba(210,149,174,1) 0%, rgba(224,82,99,1) 100%)";
+  const backgroundColor = isStrong ? "brand.pink.400" : "brand.pink.100";
 
   return (
     <>
@@ -50,7 +50,7 @@ const GradientButton: React.FC<Props> = ({
                     bgGradient: lightPinkGradient,
                   }}
                   aria-label={ariaLabel ? ariaLabel : ""}
-                  backgroundColor="brand.pink.100"
+                  backgroundColor={backgroundColor}
                   bgGradient={isButtonActive}
                   icon={icon}
                 />
@@ -66,7 +66,7 @@ const GradientButton: React.FC<Props> = ({
                   bgGradient: lightPinkGradient,
                 }}
                 aria-label={ariaLabel ? ariaLabel : ""}
-                backgroundColor="brand.pink.100"
+                backgroundColor={backgroundColor}
                 bgGradient={isButtonActive}
                 icon={icon}
               />
@@ -92,7 +92,7 @@ const GradientButton: React.FC<Props> = ({
                   bgGradient: lightPinkGradient,
                 }}
                 aria-label={ariaLabel ? ariaLabel : ""}
-                backgroundColor="brand.pink.100"
+                backgroundColor={backgroundColor}
                 bgGradient={isButtonActive}
                 cursor="initial"
                 icon={icon}
@@ -108,7 +108,7 @@ const GradientButton: React.FC<Props> = ({
                 bgGradient: lightPinkGradient,
               }}
               aria-label={ariaLabel ? ariaLabel : ""}
-              backgroundColor="brand.pink.100"
+              backgroundColor={backgroundColor}
               bgGradient={isButtonActive}
               cursor="initial"
               icon={icon}

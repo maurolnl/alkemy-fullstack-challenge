@@ -3,10 +3,12 @@ import {AiOutlineHome, AiOutlineUserDelete, AiOutlinePlusCircle} from "react-ico
 import {HiOutlineInbox} from "react-icons/hi";
 
 import GradientButton from "../Button";
+import LogInDialog from "../LogInDialog";
 import OperationForm from "../OperationForm";
 
 const Navbar = () => {
   const {isOpen, onOpen, onClose} = useDisclosure();
+  const {isOpen: isOpenDialog, onOpen: onOpenDialog, onClose: onCloseDialog} = useDisclosure();
 
   return (
     <Box as="header" backgroundColor="neutral.white">
@@ -38,11 +40,12 @@ const Navbar = () => {
               ariaLabel="Cerrar Sesión"
               hasLabel={true}
               icon={<AiOutlineUserDelete />}
-              url="/login"
+              onClick={onOpenDialog}
             />
           </Stack>
         </Stack>
         <OperationForm isOpen={isOpen} onClose={onClose} />
+        <LogInDialog isOpen={isOpenDialog} onClose={onCloseDialog} />
       </Container>
     </Box>
   );

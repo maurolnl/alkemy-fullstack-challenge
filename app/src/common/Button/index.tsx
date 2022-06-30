@@ -24,8 +24,6 @@ const GradientButton: React.FC<Props> = ({
   hasLabel,
 }) => {
   const isButtonActive = variant === "active" ? gradients.pink_accent : "brand.pink.100";
-  const lightPinkGradient =
-    "linear-gradient(120deg, rgba(210,149,174,1) 0%, rgba(224,82,99,1) 100%)";
   const backgroundColor = isStrong ? "brand.pink.400" : "brand.pink.100";
 
   return (
@@ -47,7 +45,7 @@ const GradientButton: React.FC<Props> = ({
                     boxShadow: "0 0 0 2px rgba(224,82,99,1)",
                   }}
                   _hover={{
-                    bgGradient: lightPinkGradient,
+                    bgGradient: gradients.pink_strong,
                   }}
                   aria-label={ariaLabel ? ariaLabel : ""}
                   backgroundColor={backgroundColor}
@@ -63,7 +61,7 @@ const GradientButton: React.FC<Props> = ({
                   boxShadow: "0 0 0 2px rgba(224,82,99,1)",
                 }}
                 _hover={{
-                  bgGradient: lightPinkGradient,
+                  bgGradient: gradients.pink_strong,
                 }}
                 aria-label={ariaLabel ? ariaLabel : ""}
                 backgroundColor={backgroundColor}
@@ -89,7 +87,7 @@ const GradientButton: React.FC<Props> = ({
                   boxShadow: "0 0 0 2px rgba(224,82,99,1)",
                 }}
                 _hover={{
-                  bgGradient: lightPinkGradient,
+                  bgGradient: gradients.pink_strong,
                 }}
                 aria-label={ariaLabel ? ariaLabel : ""}
                 backgroundColor={backgroundColor}
@@ -105,7 +103,7 @@ const GradientButton: React.FC<Props> = ({
                 boxShadow: "0 0 0 2px rgba(224,82,99,1)",
               }}
               _hover={{
-                bgGradient: lightPinkGradient,
+                bgGradient: gradients.pink_strong,
               }}
               aria-label={ariaLabel ? ariaLabel : ""}
               backgroundColor={backgroundColor}
